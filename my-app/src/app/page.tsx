@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CodeBracketIcon, DevicePhoneMobileIcon, CommandLineIcon } from "@heroicons/react/24/outline";
+import { CodeBracketIcon, CommandLineIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
   return (
@@ -55,7 +55,6 @@ export default function Home() {
             >
               {[
                 { icon: CodeBracketIcon, label: "Full Stack Developer" },
-                // { icon: DevicePhoneMobileIcon, label: "Mobile App Developer" },
                 { icon: CommandLineIcon, label: "DevOps Engineer" }
               ].map((item, index) => (
                 <motion.div
