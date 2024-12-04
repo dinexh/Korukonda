@@ -8,14 +8,14 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://korukonda.com'),
-  title: 'Korukonda',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://dineshkorukonda.in'),
+  title: 'Dinesh Korukonda',
   description: 'Personal website and blog',
   openGraph: {
-    title: 'Korukonda',
+    title: 'Dinesh Korukonda',
     description: 'Personal website and blog',
-    url: 'https://korukonda.com',
-    siteName: 'Korukonda',
+    url: 'https://dineshkorukonda.com',
+    siteName: 'Dinesh Korukonda',
     locale: 'en_US',
     type: 'website',
   },
@@ -31,7 +31,7 @@ export const metadata = {
     },
   },
   twitter: {
-    title: 'Korukonda',
+    title: 'Dinesh Korukonda',
     card: 'summary_large_image',
   },
 };
