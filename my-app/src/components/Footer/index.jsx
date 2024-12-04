@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Link as ScrollLink } from "react-scroll";
 
 const Footer = () => {
   const socialLinks = [
@@ -63,14 +64,15 @@ const Footer = () => {
 
   return (
     <footer className="bg-black/30 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
             <motion.h3
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               className="text-2xl font-bold text-white"
             >
               Dinesh Korukonda
@@ -102,28 +104,34 @@ const Footer = () => {
               className="space-y-2"
             >
               <li>
-                <a
-                  href="#about"
-                  className="text-white/60 hover:text-white transition-colors"
+                <ScrollLink
+                  to="about"
+                  smooth={true}
+                  duration={500}
+                  className="text-white/60 hover:text-white transition-colors cursor-pointer"
                 >
                   About
-                </a>
+                </ScrollLink>
               </li>
               <li>
-                <a
-                  href="#projects"
-                  className="text-white/60 hover:text-white transition-colors"
+                <ScrollLink
+                  to="projects"
+                  smooth={true}
+                  duration={500}
+                  className="text-white/60 hover:text-white transition-colors cursor-pointer"
                 >
                   Projects
-                </a>
+                </ScrollLink>
               </li>
               <li>
-                <a
-                  href="#contact"
-                  className="text-white/60 hover:text-white transition-colors"
+                <ScrollLink
+                  to="contact"
+                  smooth={true}
+                  duration={500}
+                  className="text-white/60 hover:text-white transition-colors cursor-pointer"
                 >
                   Contact
-                </a>
+                </ScrollLink>
               </li>
             </motion.ul>
           </div>

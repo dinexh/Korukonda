@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 
 const Gallery = [
   {
@@ -16,7 +16,7 @@ const Gallery = [
     caption: "International Student MasterClass",
   },
   {
-    image: "/gallery/7.jpg",
+    image: "https://i.imghippo.com/files/app8106RA.JPG",
     pattern: "bg-gradient-to-tr from-emerald-500/20 to-teal-500/20",
     className: "col-span-2 row-span-2",
     caption: "Frontend Development Learnathon",
@@ -60,14 +60,17 @@ const Gallery = [
 ];
 const GalleryItem = ({ image, pattern, className, caption }) => {
   return (
-    <div className={`${className} relative overflow-hidden group rounded-xl border border-white/10`}>
+    <Link 
+      href={image} 
+      target="_blank" 
+      className={`${className} relative overflow-hidden group rounded-xl border border-white/10`}
+    >
       {image ? (
         <>
-          <Image
+          <img
             src={image}
             alt="Achievement"
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-center p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -103,7 +106,7 @@ const GalleryItem = ({ image, pattern, className, caption }) => {
           </div>
         </div>
       )}
-    </div>
+    </Link>
   );
 };
 
