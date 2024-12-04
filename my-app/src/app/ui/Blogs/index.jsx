@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import Footer from "../../../components/Footer/index";
 export const blogPosts = [
   {
     id: 1,

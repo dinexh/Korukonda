@@ -1,15 +1,17 @@
 "use client";
+//  components starts here
 
 import SmoothScroll from "../components/SmoothScroll";
 import ParticleBackground from "../../src/app/ui/ParticleBackground/index";
 import Navigation from "../components/Navigation";
-import Hero from "../../src/app/ui/Hero";
-import About from "../../src/app/ui/About";
-import Skills from "../../src/app/ui/Skills";
-import Projects from "../../src/app/ui/Projects";
+import Hero from "./ui/Hero";
+import About from "./ui/About";
+import Skills from "./ui/Skills";
+import Projects from "./ui/Projects";
 import Testimonials from "./ui/Testimonials";
-import Contact from "../../src/app/ui/Contact";
+import Contact from "./ui/Contact";
 import Footer from "../components/Footer";
+import GalleryComponent from "./ui/Gallery/index";
 
 export default function Home() {
   return (
@@ -20,6 +22,7 @@ export default function Home() {
         <Navigation />
         <Hero />
         <About />
+        <GalleryComponent />
         <Skills />
         <Projects />
         <Testimonials />
