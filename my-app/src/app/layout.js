@@ -8,31 +8,14 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: 'Dinesh Korukonda - Full Stack Developer & DevOps Engineer',
-  description: 'Portfolio website of Dinesh Korukonda, a Full Stack Developer and DevOps Engineer specializing in web development and cloud infrastructure.',
-  keywords: [
-    'Dinesh Korukonda',
-    'Full Stack Developer',
-    'DevOps Engineer',
-    'Web Development',
-    'Cloud Infrastructure',
-    'Software Engineer',
-    'React Developer',
-    'Node.js Developer'
-  ],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://korukonda.com'),
+  title: 'Korukonda',
+  description: 'Personal website and blog',
   openGraph: {
-    title: 'Dinesh Korukonda - Full Stack Developer & DevOps Engineer',
-    description: 'Portfolio website of Dinesh Korukonda, a Full Stack Developer and DevOps Engineer specializing in web development and cloud infrastructure.',
-    url: 'https://dineshkorukonda.com',
-    siteName: 'Dinesh Korukonda Portfolio',
-    images: [
-      {
-        url: '/images/Dinesh.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Dinesh Korukonda Portfolio',
-      },
-    ],
+    title: 'Korukonda',
+    description: 'Personal website and blog',
+    url: 'https://korukonda.com',
+    siteName: 'Korukonda',
     locale: 'en_US',
     type: 'website',
   },
@@ -48,19 +31,15 @@ export const metadata = {
     },
   },
   twitter: {
+    title: 'Korukonda',
     card: 'summary_large_image',
-    title: 'Dinesh Korukonda - Full Stack Developer & DevOps Engineer',
-    description: 'Portfolio website of Dinesh Korukonda, a Full Stack Developer and DevOps Engineer specializing in web development and cloud infrastructure.',
-    images: ['/images/Dinesh.jpg'],
-  }
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} font-sans antialiased`}>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
