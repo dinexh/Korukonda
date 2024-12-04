@@ -7,12 +7,16 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
+  const GoToBlogs = () => {
+    window.location.href = '/blogs';
+  };
+
   const navItems = [
     { label: "Home", href: "home" },
     { label: "About", href: "about" },
     { label: "Skills", href: "skills" },
     { label: "Projects", href: "projects" },
-    { label: "Blog", href: "/blog" },
+    { label: "Blogs", href: "/blogs" },
     { label: "Contact", href: "contact" },
   ];
 
@@ -42,7 +46,8 @@ const Navigation = () => {
 
   const handleNavClick = (e, href) => {
     if (href.startsWith('/')) {
-      // For absolute URLs (like /blog), use normal navigation
+      // For absolute URLs (like /blogs), navigate directly
+      window.location.href = href;
       return;
     }
     e.preventDefault();

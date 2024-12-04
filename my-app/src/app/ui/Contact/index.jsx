@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { FaLinkedin, FaGithub, FaInstagram, FaTwitter, FaMedium } from 'react-icons/fa';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,34 @@ const Contact = () => {
     e.preventDefault();
     // Add your form submission logic here
   };
+
+  const socialLinks = [
+    {
+      name: 'LinkedIn',
+      icon: <FaLinkedin className="w-6 h-6" />,
+      url: 'https://www.linkedin.com/in/dinesh-korukonda-513855271/',
+    },
+    {
+      name: 'GitHub',
+      icon: <FaGithub className="w-6 h-6" />,
+      url: 'https://github.com/dinexh',
+    },
+    {
+      name: 'Instagram',
+      icon: <FaInstagram className="w-6 h-6" />,
+      url: 'https://instagram.com/dinnnexh',
+    },
+    {
+      name: 'Twitter',
+      icon: <FaTwitter className="w-6 h-6" />,
+      url: 'https://twitter.com/x/migrate?tok=7b2265223a222f64696e6e6e6e787368222c2274223a313733333239353734337d436481841c7fd28ba7ddbaa6cbeb1b3d',
+    },
+    {
+      name: 'Medium',
+      icon: <FaMedium className="w-6 h-6" />,
+      url: 'https://medium.com/@dineshkorukonda',
+    },
+  ];
 
   return (
     <section id="contact" className="py-20 relative">
@@ -61,8 +90,19 @@ const Contact = () => {
             {/* Social Links */}
             <div className="space-y-4">
               <h3 className="text-2xl font-semibold text-white">Follow Me</h3>
-              <div className="flex space-x-4">
-                {/* Add your social media links here */}
+              <div className="flex flex-wrap gap-4">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 hover:bg-white/10 text-white/60 hover:text-blue-400 transition-all duration-300 group"
+                    aria-label={link.name}
+                  >
+                    {link.icon}
+                  </a>
+                ))}
               </div>
             </div>
           </motion.div>

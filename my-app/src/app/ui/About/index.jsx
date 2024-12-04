@@ -16,7 +16,7 @@ const About = () => {
         >
           <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
             <Image
-              src="/images/Dinesh.jpg"
+              src="/images/Dinesh2.jpeg"
               alt="Dinesh Korukonda"
               fill
               className="object-cover"
