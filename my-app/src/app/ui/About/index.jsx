@@ -36,7 +36,7 @@ const About = () => {
         >
           <h2 className="text-4xl font-bold text-white">About Me</h2>
           <p className="text-white/70 leading-relaxed">
-            Hey there! I'm Dinesh, a passionate Full Stack Developer and DevOps Engineer 
+            Hey there! I&apos;m Dinesh, a passionate Full Stack Developer and DevOps Engineer 
             based in India. I specialize in building robust web applications and 
             implementing efficient cloud solutions.
           </p>

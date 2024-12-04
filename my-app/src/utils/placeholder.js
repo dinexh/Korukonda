@@ -20,4 +20,13 @@ export const generatePlaceholderImage = (text, width = 800, height = 600) => {
   ctx.fillText(text, width/2, height/2);
 
   return canvas.toDataURL('image/jpeg');
-}; 
+};
+
+export const blogs = [
+  {
+    slug: 'blog-1',
+    title: 'Blog 1',
+    // other blog properties...
+  },
+  // Add more blog entries as needed...
+]; 

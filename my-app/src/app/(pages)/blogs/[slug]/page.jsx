@@ -1,14 +1,14 @@
 import { notFound } from "next/navigation";
-import { blogPosts } from "@/app/ui/Blogs";
+import { blogs } from '@/utils/placeholder';
 
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
+  return blogs.map((blog) => ({
+    slug: blog.slug,
   }));
 }
 
 export default function BlogPost({ params }) {
-  const post = blogPosts.find((post) => post.slug === params.slug);
+  const post = blogs.find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();

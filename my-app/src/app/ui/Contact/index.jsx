@@ -55,7 +55,7 @@ const Contact = () => {
         >
           <h2 className="text-4xl font-bold text-white mb-4">Get In Touch</h2>
           <p className="text-white/60 max-w-2xl mx-auto">
-            Have a project in mind? Let's work together to create something amazing.
+            Have a project in mind? Let&apos;s work together to create something amazing.
           </p>
         </motion.div>
 

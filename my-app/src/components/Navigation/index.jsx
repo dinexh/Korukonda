@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,14 +11,14 @@ const Navigation = () => {
     window.location.href = '/blogs';
   };
 
-  const navItems = [
-    { label: "Home", href: "home" },
-    { label: "About", href: "about" },
-    { label: "Skills", href: "skills" },
-    { label: "Projects", href: "projects" },
-    { label: "Blogs", href: "/blogs" },
-    { label: "Contact", href: "contact" },
-  ];
+  const navItems = useMemo(() => [
+    { href: "#home", label: "Home" },
+    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
+    { href: "#projects", label: "Projects" },
+    { href: "/blogs", label: "Blogs" },
+    { href: "#contact", label: "Contact" },
+  ], []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +42,7 @@ const Navigation = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [navItems]);
 
   const handleNavClick = (e, href) => {
     if (href.startsWith('/')) {
