@@ -63,7 +63,7 @@ const GalleryItem = ({ image, pattern, className, caption }) => {
     <Link 
       href={image} 
       target="_blank" 
-      className={`${className} relative overflow-hidden group rounded-xl border border-white/10`}
+      className={`relative overflow-hidden group rounded-xl border border-white/10 ${className}`}
     >
       {image ? (
         <>
@@ -114,9 +114,21 @@ export default function GalleryComponent() {
   return (
     <section className="py-16 bg-black">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-4 gap-4 auto-rows-[200px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[200px]">
           {Gallery.map((achievement, index) => (
-            <GalleryItem key={index} {...achievement} />
+            <GalleryItem 
+              key={index} 
+              {...achievement}
+              className={`${
+                achievement.className.includes('col-span-2') 
+                  ? 'col-span-1 sm:col-span-2 lg:col-span-2' 
+                  : 'col-span-1'
+              } ${
+                achievement.className.includes('row-span-2')
+                  ? 'row-span-1 sm:row-span-2'
+                  : 'row-span-1'
+              }`}
+            />
           ))}
         </div>
       </div>

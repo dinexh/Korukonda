@@ -1,16 +1,16 @@
 "use client";
 //  components starts here
-
 import SmoothScroll from "../components/SmoothScroll";
-import ParticleBackground from "../../src/app/ui/ParticleBackground/index";
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
+// ui components starts here
+import ParticleBackground from "./ui/ParticleBackground/index";
 import Hero from "./ui/Hero";
 import About from "./ui/About";
 import Skills from "./ui/Skills";
-import Projects from "./ui/Projects";
+import Projects from "./ui/Projects/index";
 import Testimonials from "./ui/Testimonials";
 import Contact from "./ui/Contact";
-import Footer from "../components/Footer";
 import GalleryComponent from "./ui/Gallery/index";
 
 export default function Home() {
@@ -27,8 +27,6 @@ export default function Home() {
         <Projects />
         <Testimonials />
         <Contact />
-
-        {/* Footer */}
         <Footer />
       </main>
     </SmoothScroll>
