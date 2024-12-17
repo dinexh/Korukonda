@@ -12,12 +12,12 @@ const Navigation = () => {
   };
 
   const navItems = useMemo(() => [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
-    { href: "#projects", label: "Projects" },
+    { href: "home", label: "Home" },
+    { href: "about", label: "About" },
+    { href: "skills", label: "Skills" },
+    { href: "projects", label: "Projects" },
     { href: "/blogs", label: "Blogs" },
-    { href: "#contact", label: "Contact" },
+    { href: "contact", label: "Contact" },
   ], []);
 
   useEffect(() => {
