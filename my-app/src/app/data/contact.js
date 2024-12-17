@@ -1,3 +1,5 @@
+import { FaLinkedin, FaGithub, FaInstagram, FaTwitter, FaMedium } from 'react-icons/fa';
+
 export const socialLinks = [    
   {
     name: 'LinkedIn',

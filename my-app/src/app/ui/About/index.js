@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const About = () => {
+  const DownloadResume = () => {
+    window.open("/resume.pdf", "_blank");
+  };
   return (
     <section id="about" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
@@ -67,6 +70,9 @@ const About = () => {
               ))}
             </div>
           </div>
+          <button onClick={DownloadResume} className="text-white/70 text-lg font-light tracking-[0.2em] uppercase mt-4">
+             download resume
+            </button>
         </motion.div>
       </div>
     </section>
