@@ -107,7 +107,7 @@ const ParticleBackground = () => {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, []);
+  }, [mousePosition.x, mousePosition.y]);
 
   return (
     <canvas

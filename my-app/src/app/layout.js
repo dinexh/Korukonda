@@ -1,10 +1,11 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { Toaster } from 'react-hot-toast';
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
+  display: 'swap',
 });
 
 export const metadata = {
@@ -38,8 +39,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={poppins.className}>
+      <body>
+        {children}
+        <Toaster position="bottom-right" />
+      </body>
     </html>
   );
 }

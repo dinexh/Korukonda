@@ -1,58 +1,59 @@
 "use client";
 
 import Link from "next/link";
+import Image from 'next/image';
 
 const Gallery = [
   {
-    image: "/gallery/1.jpg",
+    image: "https://i.imghippo.com/files/FdLQ8483nc.jpg",
     pattern: "bg-gradient-to-br from-purple-500/20 to-pink-500/20",
     className: "col-span-1 row-span-1",
     caption: "CodeForCause Hackthon",
   },
   {
-    image: "/gallery/2.jpg",
+    image: "https://i.imghippo.com/files/oYVx6632ydQ.jpg",
     pattern: "bg-gradient-to-bl from-blue-500/20 to-cyan-500/20",
     className: "col-span-1 row-span-1",
     caption: "International Student MasterClass",
   },
   {
-    image: "https://i.imghippo.com/files/app8106RA.JPG",
+    image: "https://i.imghippo.com/files/nqc8109l.jpg",
     pattern: "bg-gradient-to-tr from-emerald-500/20 to-teal-500/20",
     className: "col-span-2 row-span-2",
     caption: "Frontend Development Learnathon",
   },
   {
-    image: "/gallery/4.jpg",
+    image: "https://i.imghippo.com/files/Aqv7139mWE.jpg",
     pattern: "bg-gradient-to-tl from-orange-500/20 to-yellow-500/20",
     className: "col-span-1 row-span-1",
     caption: "Smart India Hackthon 2023",
   },
   {
-    image: "/gallery/5.jpg",
+    image: "https://i.imghippo.com/files/MYVB8219kk.jpg",
     pattern: "bg-gradient-to-br from-red-500/20 to-pink-500/20",
     className: "col-span-1 row-span-1",
     caption: "Induction program ZOCC",
   },
   {
-    image: "/gallery/6.jpg",
+    image: "https://i.imghippo.com/files/wqcJ6700pg.jpg",
     pattern: "bg-gradient-to-bl from-indigo-500/20 to-purple-500/20",
     className: "col-span-1 row-span-1",
     caption: "ZeroOne CodeClub Club Membership appriceation",
   },
   {
-   image: "/gallery/3.jpg",
+   image: "https://i.imghippo.com/files/xOFh5966ouA.JPG",
     pattern: "bg-gradient-to-tr from-green-500/20 to-emerald-500/20",
     className: "col-span-1 row-span-1",
     caption: "Linux Adminstration workshop",
   },
   {
-    image: "/gallery/8.jpg",
+    image: "https://i.imghippo.com/files/BrTE3928TI.jpg",
     pattern: "bg-gradient-to-tl from-blue-500/20 to-indigo-500/20",
     className: "col-span-1 row-span-1",
     caption: "Web Development Basics MasterClass",
   },
   {
-    image: "/gallery/9.jpg",
+    image: "https://i.imghippo.com/files/oWv5292BBI.jpg",
     pattern: "bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20",
     className: "col-span-1 row-span-1",
     caption: "ZOCC Web Development Jam Session",
@@ -67,10 +68,12 @@ const GalleryItem = ({ image, pattern, className, caption }) => {
     >
       {image ? (
         <>
-          <img
+          <Image 
             src={image}
             alt="Achievement"
-            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+            width={500}
+            height={300}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-center p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

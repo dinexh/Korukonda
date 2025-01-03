@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { socialLinks } from "../../data/contact";
+import toast from 'react-hot-toast';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,12 +11,45 @@ const Contact = () => {
     email: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your form submission logic here
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const loadingToast = toast.loading('Sending message...');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success('Message sent successfully!', { id: loadingToast });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        toast.error(data.error || 'Something went wrong. Please try again.', { id: loadingToast });
+      }
+    } catch (error) {
+      toast.error('Something went wrong. Please try again.', { id: loadingToast });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-20 relative">
@@ -93,8 +127,11 @@ const Contact = () => {
                   <input
                     type="text"
                     id="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 text-white"
                     placeholder="Your name"
+                    required
                   />
                 </div>
                 <div>
@@ -102,25 +139,33 @@ const Contact = () => {
                   <input
                     type="email"
                     id="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 text-white"
                     placeholder="Your email"
+                    required
                   />
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-white/60 mb-2">Message</label>
                   <textarea
                     id="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     rows={4}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 text-white"
                     placeholder="Your message"
+                    required
                   />
                 </div>
               </div>
+              
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg hover:opacity-90 transition-opacity"
+                disabled={isSubmitting}
+                className="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </motion.div>

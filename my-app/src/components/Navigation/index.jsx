@@ -25,12 +25,16 @@ const Navigation = () => {
       setIsScrolled(window.scrollY > 20);
 
       // Update active section based on scroll position
-      const sections = navItems.map(item => item.href);
+      const sections = navItems
+        .filter(item => !item.href.startsWith('/')) // Only check sections, not external links
+        .map(item => item.href);
+
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+          // Adjust the detection range to be more reliable
+          return rect.top <= 150 && rect.bottom >= 0;
         }
         return false;
       });
@@ -41,24 +45,34 @@ const Navigation = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
+    // Initial check for active section
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [navItems]);
 
   const handleNavClick = (e, href) => {
+    e.preventDefault();
+    
     if (href.startsWith('/')) {
       // For absolute URLs (like /blogs), navigate directly
       window.location.href = href;
       return;
     }
-    e.preventDefault();
-    const element = document.getElementById(href);
-    if (element) {
-      const offset = element.offsetTop - 80;
-      window.scrollTo({
-        top: offset,
-        behavior: "smooth",
-      });
-    }
+
+    // Add a small delay to ensure elements are mounted
+    setTimeout(() => {
+      const element = document.getElementById(href);
+      if (element) {
+        const navHeight = 80; // Height of your fixed navbar
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 100);
   };
 
   return (

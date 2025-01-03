@@ -1,44 +1,44 @@
 export const projects = [
         {
-          title: 'Zerooone Portal',
+          title: 'ZeroOne Portal',
           description: 'A comprehensive web portal for digital services and solutions.',
-          image: '/images/zerooone_portal.png',
-          link: 'https://zerooone.com',
-          tags: ['React', 'Next.js', 'Tailwind CSS']
+          image: 'https://i.imghippo.com/files/Fzct4577MYI.png',
+          link: 'https://github.com/dinexh/Cero1PHP',
+          tags: ['PHP', 'php Composer', 'javacript']
         },
         {
-          title: 'SVR Platform',
-          description: 'Advanced virtual reality platform for immersive experiences.',
-          image: '/images/svr.png',
-          link: 'https://svr-platform.com',
+          title: 'Smart Village Revolution Website',
+          description: 'A pirnoor Initialive of KLEF(Deemed to be University)',
+          image: 'https://i.imghippo.com/files/ZgcS5305kMk.png',
+          link: 'https://sac-svr.vercel.app',
           tags: ['Next js', 'node', 'mysql']
         },
         {
           title: 'Chitramela',
-          description: 'Digital art gallery and creative community platform.',
-          image: '/images/chitramela.png',
+          description: 'A Film Festival Website',
+          image: 'https://i.imghippo.com/files/vvA9041vsc.png',
           link: 'https://chitramela.com',
-          tags: ['React', 'Firebase', 'Material-UI']
+          tags: ['Next js', 'node', 'mongoDB' , 'Ngnix']
         },
-  {
-    title: "Panchatantra",
-    description: "An interactive storytelling platform bringing ancient Indian tales to life",
-    tags: ["React", "Next.js", "TailwindCSS", "Framer Motion"],
-    image: "/images/projects/panchatantra.jpg",
-    link: "#"
-  },
-  {
-    title: "Sports Management System",
-    description: "A platform for managing sports events, teams, and player statistics",
-    tags: ["Node.js", "Express", "MongoDB", "React"],
-    image: "/images/projects/sports.jpg",
-    link: "#"
-  },
-  {
-    title: "Chat Application",
-    description: "Real-time chat app with messaging and group chat capabilities",
-    tags: ["Socket.io", "React", "Firebase", "TailwindCSS"],
-    image: "/images/projects/chat.jpg",
-    link: "#"
-  }
+        {
+          title: "Panchatantra",
+          description: "An interactive storytelling platform bringing ancient Indian tales to life",
+          tags: ["React", "express", "Framer Motion"],
+          image: "https://i.imghippo.com/files/Msnq2841pVk.png",
+          link: "https://panchatantra.vercel.app"
+        },
+        {
+          title: "Helderlig",
+          description: "Wood Import Export Business Website",
+          tags: ["Next js", "Node", "MongoDB", "vercel"],
+          image: "https://i.imghippo.com/files/eTW6369c.png",
+          link: "https://helderlig.com"
+        },
+        {
+          title: "Social Internship (KLEF)",
+          description: "A Social Internship Platform for KLEF(Deemed to be University)",
+          tags: ["Next js", "Node", "MongoDB", "vercel"],
+          image: "https://i.imghippo.com/files/bigA8482yKA.png",
+          link: "https://social-internship.vercel.app"
+        }
 ]; 

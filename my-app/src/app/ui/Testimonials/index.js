@@ -2,25 +2,24 @@
 
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import Image from "next/image";
 
 const testimonials = [
   {
-    name: "John Doe",
-    role: "Project Manager at TechCorp",
-    image: "/images/testimonials/john.jpg",
+    name: "Shyam",
+    role: "CEO Helderlig",
+    emoji: "👨‍💼",
     content: "Dinesh is an exceptional developer who consistently delivers high-quality work. His expertise in both frontend and backend development made him an invaluable asset to our team.",
   },
   {
-    name: "Sarah Smith",
-    role: "Lead Developer at WebSolutions",
-    image: "/images/testimonials/sarah.jpg",
+    name: "P Sai Vijay",
+    role: "CEO Smart Village Revolution | Director SAC",
+    emoji: "👨‍💻",
     content: "Working with Dinesh was a great experience. His knowledge of DevOps practices and ability to implement efficient solutions helped streamline our development process.",
   },
   {
-    name: "Mike Johnson",
-    role: "CTO at StartupX",
-    image: "/images/testimonials/mike.jpg",
+    name: "Akash",
+    role: "CEO Avan Flix Media",
+    emoji: "👨‍🚀",
     content: "Dinesh's attention to detail and problem-solving skills are impressive. He not only writes clean code but also thinks about scalability and maintainability.",
   },
   // Add more testimonials as needed
@@ -73,7 +72,6 @@ const Testimonials = () => {
           </p>
         </motion.div>
 
-        {/* Testimonials Slider */}
         <div
           ref={containerRef}
           className="flex space-x-6 overflow-x-auto scrollbar-hide cursor-grab pb-8"
@@ -92,16 +90,8 @@ const Testimonials = () => {
               className="min-w-[350px] md:min-w-[400px] bg-white/5 backdrop-blur-sm rounded-2xl p-6 flex flex-col"
             >
               <div className="flex items-center space-x-4 mb-6">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden">
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    fill
-                    className="object-cover"
-                    onError={(e) => {
-                      e.target.src = '/images/avatar-placeholder.jpg'
-                    }}
-                  />
+                <div className="w-16 h-16 flex items-center justify-center bg-white/10 rounded-full">
+                  <span className="text-4xl">{testimonial.emoji}</span>
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-white">{testimonial.name}</h4>
@@ -120,7 +110,6 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* Scroll Indicator */}
         <div className="flex justify-center space-x-2 mt-6">
           {testimonials.map((_, index) => (
             <button
