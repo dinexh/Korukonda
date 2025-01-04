@@ -15,7 +15,7 @@ const About = () => {
   return (
     <section id="about" className="py-32 relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_48%,#ffffff05_49%,#ffffff05_51%,transparent_52%)] bg-[length:20px_20px]" />
+      {/* <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_48%,#ffffff05_49%,#ffffff05_51%,transparent_52%)] bg-[length:20px_20px]" /> */}
 
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid md:grid-cols-12 gap-16">
