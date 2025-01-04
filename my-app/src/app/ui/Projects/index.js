@@ -6,8 +6,7 @@ import Image from 'next/image';
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-[#0a0a0a] relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-transparent opacity-50" />
+    <section id="projects" className="py-20 relative">
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
