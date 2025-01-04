@@ -11,13 +11,13 @@ const testimonials = [
     content: "Dinesh is an exceptional developer who consistently delivers high-quality work. His expertise in both frontend and backend development made him an invaluable asset to our team.",
   },
   {
-    name: "P Sai Vijay",
-    role: "CEO Smart Village Revolution | Director SAC",
+    name: "Varun M",
+    role: "Keerthi Infotech PVT LTD",
     emoji: "👨‍💻",
     content: "Working with Dinesh was a great experience. His knowledge of DevOps practices and ability to implement efficient solutions helped streamline our development process.",
   },
   {
-    name: "Akash",
+    name: "Jane Doe",
     role: "CEO Avan Flix Media",
     emoji: "👨‍🚀",
     content: "Dinesh's attention to detail and problem-solving skills are impressive. He not only writes clean code but also thinks about scalability and maintainability.",
