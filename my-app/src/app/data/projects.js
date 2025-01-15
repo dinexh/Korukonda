@@ -17,7 +17,7 @@ export const projects = [
           title: 'Chitramela',
           description: 'A Film Festival Website',
           image: 'https://i.imghippo.com/files/vvA9041vsc.png',
-          link: 'https://chitramela.com',
+          link: 'https://chitramela.in',
           tags: ['Next js', 'node', 'mongoDB' , 'Ngnix']
         },
         {
@@ -30,7 +30,7 @@ export const projects = [
         {
           title: "Helderlig",
           description: "Wood Import Export Business Website",
-          tags: ["Next js", "Node", "MongoDB", "vercel"],
+          tags: ["Next js", "TypeScript", "Node", "vercel"],
           image: "https://i.imghippo.com/files/eTW6369c.png",
           link: "https://helderlig.com"
         },
