@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 119, 198, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 119, 198, 0.5);
+}
+
+/* Blog card hover effect */
+.blog-card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Gradient text animation */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text {
+  background-size: 200% auto;
+  animation: gradientFlow 3s ease infinite;
+}
+
+/* Prose styles overrides */
+.prose {
+  max-width: 100ch;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: theme('colors.white');
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.prose p {
+  color: theme('colors.gray.300');
+  line-height: 1.8;
+}
+
+.prose a {
+  color: theme('colors.purple.400');
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.prose a:hover {
+  color: theme('colors.purple.300');
+}
+
+.prose code {
+  background: rgba(120, 119, 198, 0.1);
+  color: theme('colors.purple.300');
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
+  font-size: 0.9em;
+}
+
+.prose pre {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(120, 119, 198, 0.2);
+}
+
+.prose blockquote {
+  border-left-color: theme('colors.purple.500');
+  background: rgba(120, 119, 198, 0.1);
+  padding: 1em;
+  border-radius: 0.5em;
+  margin: 2em 0;
+}
