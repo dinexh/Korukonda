@@ -43,16 +43,16 @@ const SkillLine = ({ skill, index }) => {
       onHoverEnd={() => setIsHovered(false)}
       className="font-mono group relative"
     >
-      <div className="flex items-center space-x-2 py-2 px-4 rounded-md hover:bg-black/40 transition-all">
+      <div className="flex items-center space-x-2 py-2 px-2 sm:px-4 rounded-md hover:bg-black/40 transition-all text-sm sm:text-base">
         <motion.div 
           initial={{ height: "100%" }}
           animate={{ height: isHovered ? "120%" : "100%" }}
           className="absolute left-0 w-1 bg-white/0 group-hover:bg-white/10 transition-all"
         />
-        <span className="text-[#C678DD] min-w-[60px]">{skill.type}</span>
-        <span className="text-[#E5C07B] min-w-[100px]">{skill.name}</span>
+        <span className="text-[#C678DD] min-w-[40px] sm:min-w-[60px]">{skill.type}</span>
+        <span className="text-[#E5C07B] min-w-[80px] sm:min-w-[100px]">{skill.name}</span>
         <span className="text-white/50">=</span>
-        <span className="text-[#98C379]">"{skill.value}"</span>
+        <span className="text-[#98C379] break-all sm:break-normal">"{skill.value}"</span>
         <span className="text-white/50">;</span>
       </div>
     </motion.div>
@@ -94,20 +94,20 @@ const Terminal = () => {
         </div>
       </div>
       
-      <div className="p-8">
-        <div className="text-white/50 mb-6 font-mono">
+      <div className="p-4 sm:p-8">
+        <div className="text-white/50 mb-6 font-mono text-sm sm:text-base">
           <span className="text-[#C678DD]">interface</span>{" "}
           <span className="text-[#E5C07B]">Developer</span> {"{"}
         </div>
 
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <SkillCategory title="Languages" items={skills.languages} />
           <SkillCategory title="Frameworks" items={skills.frameworks} />
           <SkillCategory title="Databases" items={skills.databases} />
           <SkillCategory title="Tools" items={skills.tools} />
         </div>
 
-        <div className="text-white/50 font-mono mt-4">{"}"}</div>
+        <div className="text-white/50 font-mono mt-4 text-sm sm:text-base">{"}"}</div>
       </div>
     </motion.div>
   );
@@ -115,12 +115,12 @@ const Terminal = () => {
 
 const Skills = () => {
   return (
-    <section className="py-24 relative">
+    <section className="py-12 sm:py-24 relative">
       <div className="max-w-6xl mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-5xl font-bold text-white mb-16 text-center"
+          className="text-3xl sm:text-5xl font-bold text-white mb-8 sm:mb-16 text-center"
         >
           Skills
         </motion.h2>
