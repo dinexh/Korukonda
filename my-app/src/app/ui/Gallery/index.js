@@ -23,10 +23,10 @@ const Gallery = [
     caption: "Frontend Development Learnathon",
   },
   {
-    image: "https://i.imghippo.com/files/Aqv7139mWE.jpg",
+    image: "https://i.imghippo.com/files/NwUx4164BSI.jpg",
     pattern: "bg-gradient-to-tl from-orange-500/20 to-yellow-500/20",
     className: "col-span-1 row-span-1",
-    caption: "Smart India Hackthon 2023",
+    caption: "24-Hour Webathon 2nd Place",
   },
   {
     image: "https://i.imghippo.com/files/MYVB8219kk.jpg",

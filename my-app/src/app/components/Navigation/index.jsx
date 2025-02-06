@@ -105,7 +105,7 @@ const Navigation = () => {
             transition={{ duration: 0.5 }}
             className="flex items-center"
           >
-            <span className="text-2xl font-bold text-white">DK</span>
+            <span className="text-2xl font-bold text-white">👨‍💻</span>
           </motion.div>
 
           {/* Navigation Items */}

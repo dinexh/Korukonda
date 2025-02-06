@@ -3,13 +3,33 @@
 import { useState, useEffect } from 'react';
 import { blogs } from '@/app/data/blogs';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiArrowLeft, FiArrowRight, FiCalendar, FiClock, FiMaximize2, FiGrid } from 'react-icons/fi';
-import Image from 'next/image';
+import { FiSearch, FiTag, FiClock, FiArrowLeft } from 'react-icons/fi';
+import BlogCard from '@/app/components/BlogCard';
+import BlogPost from '@/app/components/BlogPost';
+import Link from 'next/link';
 
 export default function BlogsPage() {
   const [selectedBlog, setSelectedBlog] = useState(null);
-  const [layout, setLayout] = useState('grid'); 
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [mounted, setMounted] = useState(false);
+
+  // Get unique categories from blogs, handling undefined categories
+  const categories = ['all', ...new Set(blogs.map(blog => blog.category || 'Uncategorized').filter(Boolean))];
+
+  // Filter blogs based on search and category
+  const filteredBlogs = blogs.filter(blog => {
+    const matchesSearch = blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         blog.excerpt?.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory === 'all' || 
+                          (selectedCategory === 'Uncategorized' && !blog.category) ||
+                          blog.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  // Update how we handle featured and regular blogs
+  const featuredBlogs = filteredBlogs.slice(0, 2);
+  const regularBlogs = filteredBlogs.slice(2);
 
   useEffect(() => {
     setMounted(true);
@@ -17,289 +37,154 @@ export default function BlogsPage() {
 
   if (!mounted) return null;
 
-  const GridLayout = () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {blogs.map((blog, index) => (
-        <motion.article
-          key={blog.id}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1 }}
-          onClick={() => setSelectedBlog(blog)}
-          className="group cursor-pointer"
-        >
-          <div className="relative h-[28rem] rounded-[2rem] p-8 overflow-hidden">
-            {/* Cover Image */}
-            {blog.coverImage && (
-              <div className="absolute inset-0 z-0">
-                <Image
-                  src={blog.coverImage}
-                  alt={blog.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            )}
-            
-            {/* Background with noise texture */}
-            <div className="absolute inset-0 bg-[#1a1a1a] opacity-60 z-[1]" />
-            <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 z-[2]" />
-            
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-fuchsia-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[3]" />
-            
-            {/* Content */}
-            <div className="relative h-full flex flex-col z-[4]">
-              <div className="flex items-center justify-between text-sm text-neutral-400">
-                <div className="flex items-center gap-4">
-                  <span className="flex items-center gap-2">
-                    <FiCalendar className="text-violet-500" />
-                    {blog.date}
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <FiClock className="text-violet-500" />
-                    {blog.readTime}
-                  </span>
-                </div>
-                <FiArrowRight className="text-violet-500 transform translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300" />
-              </div>
-
-              <div className="mt-auto">
-                <div className="flex gap-2 mb-4">
-                  {blog.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 text-xs rounded-full bg-white/5 text-neutral-400">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <h2 className="text-2xl font-light mb-4 text-white group-hover:text-violet-400 transition-colors">
-                  {blog.title}
-                </h2>
-                <p className="text-neutral-400 line-clamp-2">
-                  {blog.excerpt}
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.article>
-      ))}
-    </div>
-  );
-
-  const ListView = () => (
-    <div className="space-y-6">
-      {blogs.map((blog, index) => (
-        <motion.article
-          key={blog.id}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: index * 0.1 }}
-          onClick={() => setSelectedBlog(blog)}
-          className="group cursor-pointer"
-        >
-          <div className="relative rounded-2xl p-6 overflow-hidden">
-            <div className="absolute inset-0 bg-[#1a1a1a] opacity-80 group-hover:opacity-100 transition-opacity" />
-            <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20" />
-            <div className="relative flex items-start gap-8">
-              <div className="w-24 h-24 rounded-xl bg-violet-500/10 flex items-center justify-center flex-shrink-0">
-                <span className="text-4xl font-light text-violet-400">{index + 1}</span>
-              </div>
-              <div className="flex-1">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex gap-4 text-sm text-neutral-400">
-                    <span className="flex items-center gap-2">
-                      <FiCalendar className="text-violet-500" />
-                      {blog.date}
-                    </span>
-                    <span className="flex items-center gap-2">
-                      <FiClock className="text-violet-500" />
-                      {blog.readTime}
-                    </span>
-                  </div>
-                  <FiArrowRight className="text-violet-500 transform translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300" />
-                </div>
-                <h2 className="text-2xl font-light mb-2 text-white group-hover:text-violet-400 transition-colors">
-                  {blog.title}
-                </h2>
-                <p className="text-neutral-400 mb-4 line-clamp-2">
-                  {blog.excerpt}
-                </p>
-                <div className="flex gap-2">
-                  {blog.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 text-xs rounded-full bg-white/5 text-neutral-400">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.article>
-      ))}
-    </div>
-  );
-
-  const BlogPost = () => (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="min-h-screen"
-    >
-      <header className="sticky top-0 z-10 backdrop-blur-xl bg-black/20 border-b border-white/5">
-        <nav className="max-w-7xl mx-auto px-8 py-6">
-          <button
-            onClick={() => setSelectedBlog(null)}
-            className="text-violet-400 hover:text-violet-300 transition-colors flex items-center gap-2 group"
-          >
-            <FiArrowLeft className="group-hover:-translate-x-1 transition-transform" />
-            <span>Back to articles</span>
-          </button>
-        </nav>
-      </header>
-
-      <article className="max-w-4xl mx-auto px-8 py-16">
-        {/* Cover Image */}
-        {selectedBlog.coverImage && (
-          <div className="relative h-[400px] rounded-2xl overflow-hidden mb-12">
-            <Image
-              src={selectedBlog.coverImage}
-              alt={selectedBlog.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 800px"
-              priority
-            />
-          </div>
-        )}
-
-        <div className="mb-8">
-          <div className="flex items-center gap-4 text-sm text-neutral-400 mb-6">
-            <span className="flex items-center gap-2">
-              <FiCalendar className="text-violet-500" />
-              {selectedBlog.date}
-            </span>
-            <span className="flex items-center gap-2">
-              <FiClock className="text-violet-500" />
-              {selectedBlog.readTime}
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-light text-white mb-6">
-            {selectedBlog.title}
-          </h1>
-          <div className="flex gap-2">
-            {selectedBlog.tags.map(tag => (
-              <span key={tag} className="px-4 py-1.5 text-sm rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="prose prose-invert prose-lg max-w-none">
-          {selectedBlog.content.split('\n\n').map((section, index) => {
-            if (section.trim().startsWith('![')) {
-              const imageMatch = section.match(/!\[(.*?)\]\((.*?)\)/);
-              if (imageMatch) {
-                const [, alt, src] = imageMatch;
-                return (
-                  <div key={index} className="my-12">
-                    <div className="relative h-[400px] rounded-2xl overflow-hidden">
-                      <Image
-                        src={src}
-                        alt={alt}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 800px"
-                        unoptimized={true}
-                        loading="eager"
-                        onError={(e) => {
-                          console.error('Image failed to load:', src);
-                          e.target.style.display = 'none';
-                        }}
-                      />
-                    </div>
-                  </div>
-                );
-              }
-            }
-
-            if (section.trim().match(/^\d+\./)) {
-              const [number, ...textParts] = section.trim().split('.');
-              const title = textParts.join('.').trim();
-              return (
-                <div key={index} className="my-12">
-                  <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 rounded-xl bg-violet-500/10 flex items-center justify-center flex-shrink-0">
-                      <span className="text-2xl font-light text-violet-400">{number}</span>
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-light text-white mb-4">{title}</h3>
-                      <div className="text-neutral-300">
-                        {section.split('\n').slice(1).join('\n')}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            }
-
-            return (
-              <p key={index} className="text-neutral-300 leading-relaxed">
-                {section}
-              </p>
-            );
-          })}
-        </div>
-      </article>
-    </motion.div>
-  );
-
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Noise texture */}
-      <div className="fixed inset-0 bg-[url('/noise.png')] opacity-20 pointer-events-none" />
-      
-      {/* Gradient background */}
+    <div className="min-h-screen bg-[#0A0A0A]">
+      {/* Background Effects */}
+      <div className="fixed inset-0 bg-[url('/noise.png')] opacity-10 pointer-events-none" />
       <div className="fixed inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-fuchsia-500/5 pointer-events-none" />
 
       <div className="relative">
         {selectedBlog ? (
-          <BlogPost />
+          <BlogPost blog={selectedBlog} onBack={() => setSelectedBlog(null)} />
         ) : (
-          <div className="max-w-7xl mx-auto px-8 py-16">
-            <div className="flex items-center justify-between mb-16">
-              <motion.div
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            {/* Back to Home Button */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="mb-8"
+            >
+              <Link 
+                href="/"
+                className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors group"
+              >
+                <FiArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+                <span>Back to Home</span>
+              </Link>
+            </motion.div>
+
+            {/* Header with Search */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-12"
+            >
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight">
+                The Blog
+              </h1>
+              <div className="relative max-w-xl">
+                <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400 w-5 h-5" />
+                <input
+                  type="text"
+                  placeholder="Search articles..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                />
+              </div>
+            </motion.div>
+
+            {/* Categories */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex flex-wrap gap-2 mb-12"
+            >
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-4 py-2 rounded-full text-sm transition-all ${
+                    selectedCategory === category
+                      ? 'bg-violet-500 text-white'
+                      : 'bg-white/5 text-neutral-400 hover:bg-white/10'
+                  }`}
+                >
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </button>
+              ))}
+            </motion.div>
+
+            {/* Featured Posts */}
+            {selectedCategory === 'all' && searchQuery === '' && (
+              <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
               >
-                <h1 className="text-4xl md:text-5xl font-light mb-4">
-                  Latest Articles
-                </h1>
-                <p className="text-neutral-400">
-                  Exploring the frontiers of technology and development
-                </p>
+                {featuredBlogs.map((blog, index) => (
+                  <div
+                    key={blog.id}
+                    className="group cursor-pointer relative overflow-hidden rounded-3xl"
+                    onClick={() => setSelectedBlog(blog)}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
+                    <img
+                      src={blog.coverImage}
+                      alt={blog.title}
+                      className="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
+                      <div className="flex items-center gap-4 mb-4">
+                        <span className="bg-violet-500 text-white px-3 py-1 rounded-full text-sm">
+                          Featured
+                        </span>
+                        <span className="text-neutral-300 text-sm flex items-center gap-2">
+                          <FiClock className="w-4 h-4" />
+                          {blog.readTime}
+                        </span>
+                      </div>
+                      <h2 className="text-2xl font-bold text-white mb-2">{blog.title}</h2>
+                      <p className="text-neutral-300">{blog.excerpt}</p>
+                    </div>
+                  </div>
+                ))}
               </motion.div>
+            )}
 
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setLayout('grid')}
-                  className={`p-2 rounded-lg transition-colors ${layout === 'grid' ? 'text-violet-400 bg-violet-500/10' : 'text-neutral-400 hover:text-white'}`}
-                >
-                  <FiGrid className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={() => setLayout('list')}
-                  className={`p-2 rounded-lg transition-colors ${layout === 'list' ? 'text-violet-400 bg-violet-500/10' : 'text-neutral-400 hover:text-white'}`}
-                >
-                  <FiMaximize2 className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-
+            {/* Regular Posts Grid */}
             <AnimatePresence mode="wait">
-              {layout === 'grid' ? <GridLayout /> : <ListView />}
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                {regularBlogs.map((blog, index) => (
+                  <motion.div
+                    key={blog.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ 
+                      opacity: 1, 
+                      y: 0,
+                      transition: { delay: index * 0.1 }
+                    }}
+                    className="group cursor-pointer bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-violet-500/50 transition-all"
+                    onClick={() => setSelectedBlog(blog)}
+                  >
+                    <div className="relative h-[200px] overflow-hidden">
+                      <img
+                        src={blog.coverImage}
+                        alt={blog.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-sm text-white">
+                        {blog.category || 'Uncategorized'}
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 text-neutral-400 text-sm mb-3">
+                        <FiClock className="w-4 h-4" />
+                        {blog.readTime}
+                      </div>
+                      <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-violet-400 transition-colors">
+                        {blog.title}
+                      </h3>
+                      <p className="text-neutral-400 line-clamp-2">{blog.excerpt}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
             </AnimatePresence>
           </div>
         )}

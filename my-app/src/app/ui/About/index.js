@@ -8,8 +8,8 @@ const About = () => {
   };
 
   const skills = [
-    "JavaScript", "TypeScript", "React", "Next.js", 
-    "Node.js", "Docker", "AWS", "MongoDB"
+    "JavaScript", "TypeScript", "Python", "PHP", "Ngnix","Ubuntu", "React", "Next.js", 
+    "Node.js", "Docker", "AWS", "MongoDB" , "Gemini API" 
   ];
 
   return (
@@ -53,7 +53,7 @@ const About = () => {
             {/* Bio */}
             <div className="space-y-8">
               <p className="text-xl leading-relaxed text-white/80">
-                Hey there! I&apos;m Dinesh, crafting digital experiences from India. 
+                Hey there! I&apos;m Dinesh Korukonda, crafting digital experiences from India. 
                 With a minimalist approach to problem-solving, I create clean, 
                 efficient, and scalable solutions.
               </p>
@@ -68,14 +68,14 @@ const About = () => {
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl group-hover:blur-2xl transition-all duration-300" />
                 <div className="relative p-6 border border-white/10 backdrop-blur-sm">
-                  <p className="text-5xl font-light">20+</p>
+                  <p className="text-5xl font-light">10+</p>
                   <p className="mt-2 text-sm text-white/60 uppercase tracking-wider">Projects</p>
                 </div>
               </div>
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl group-hover:blur-2xl transition-all duration-300" />
                 <div className="relative p-6 border border-white/10 backdrop-blur-sm">
-                  <p className="text-5xl font-light">100%</p>
+                  <p className="text-5xl font-light">95%</p>
                   <p className="mt-2 text-sm text-white/60 uppercase tracking-wider">Satisfaction</p>
                 </div>
               </div>

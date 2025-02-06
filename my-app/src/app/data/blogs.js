@@ -39,84 +39,62 @@ export const blogs = [
     author: "Dinesh Korukonda",
     date: "2024-03-21",
     readTime: "4 min",
-    tags: ["Achievement", "Webathon", "AI", "Job Portal", "Team Success"]
+    tags: ["Achievement", "Webathon", "AI", "Job Portal", "Team Success"],
+    category: "Achievement"
   },
   {
     id: 1,
-    title: "The Future of Web Development",
-    excerpt: "Exploring the latest trends and technologies shaping the future of web development...",
-    coverImage: "https://i.imghippo.com/files/iPo3701nf.jpg",
-    content: `Web development is constantly evolving, with new technologies and frameworks emerging regularly. In this post, we'll explore the most exciting trends that are shaping the future of web development.
+    title: "WWDC 2024",
+    excerpt: "What is Apple intelligence?",
+    coverImage: "https://i.imghippo.com/files/LM4095cOQ.webp",
+    content: `Apple WWDC 2024
 
-    ![AI Development](https://i.imghippo.com/files/iPo3701nf.jpg)
+    The annual Worldwide Developers Conference (WWDC) 2024, held in Cupertino, California, showcased Apple's latest technological advancements and software updates. The highlight of this year's event was Apple's significant push into artificial intelligence (AI) with the introduction of Apple Intelligence. Additionally, there were substantial updates to the Vision Pro , iPhone, Mac, iPad, Apple TV, and Apple Watch software.
 
-    1. AI-Powered Development Tools
-    The integration of AI in development workflows has revolutionized how we write and debug code. From intelligent code completion to automated testing, AI is making developers more productive than ever before.
+    ![Apple Intelligence](https://i.imghippo.com/files/WJFj4875A.webp)
 
-    ![WebAssembly](https://i.imghippo.com/files/iPo3701nf.jpg)
+    Apple Intelligence: Enhancing the Ecosystem with Privacy-First AI
 
-    2. WebAssembly and the Future of Performance
-    WebAssembly continues to push the boundaries of what's possible in web applications. With near-native performance and support for multiple programming languages, it's changing how we think about web performance.
+    Apple's commitment to integrating advanced AI and machine learning technologies across its ecosystem is revolutionising how users interact with their devices. Central to this innovation is a steadfast dedication to privacy, with a significant emphasis on on-device processing over cloud-based solutions.
 
-    ![Edge Computing](https://i.imghippo.com/files/iPo3701nf.jpg)
+    On-Device Processing: Apple's approach to AI is distinguished by its focus on on-device processing. By performing AI tasks directly on devices, Apple minimises the amount of personal data sent to the cloud, significantly enhancing user privacy and security. This methodology applies to various functionalities, such as Siri's speech recognition, image analysis in the Photos app, and predictive text input, ensuring that sensitive data remains under the user's control.
 
-    3. The Rise of Edge Computing
-    Edge computing is becoming increasingly important in modern web architecture. By processing data closer to where it's needed, we can create faster, more responsive applications that provide better user experiences.`,
+    Contextual Awareness and Predictive Capabilities: Apple Intelligence offers a seamless user experience by understanding and anticipating user needs based on context. Siri, for example, can suggest making a call if the user is running late for a meeting or remind them of tasks based on their routine and app usage patterns. These features make interactions more intuitive and personalised.
+
+    Enhanced User Experiences Across Devices: AI-powered enhancements are evident throughout the Apple ecosystem. Improved autocorrect, real-time translation, and personalised content recommendations in Apple Music and News are all driven by machine learning. These features contribute to a more fluid and enjoyable user experience, whether on an iPhone, iPad, Mac, Apple Watch, or Apple TV.
+
+    Health and Fitness Innovations: On watchOS, Apple Intelligence powers health and fitness features such as fall detection, heart rate monitoring, and workout tracking. These capabilities offer users personalised health insights and recommendations, promoting better health management through real-time data analysis.
+
+    Advanced Image and Video Processing: AI is also at the heart of Apple's photo and video processing tools. The Photos app, for instance, employs machine learning to recognise faces, places, and objects, facilitating intelligent search and organisation of media. These advanced tools enable users to edit and manage their photos and videos with greater ease and sophistication.
+
+    Accessibility Enhancements: Apple's AI-driven accessibility features are designed to make technology more inclusive. VoiceOver, which uses machine learning to describe images and provide context to visually impaired users, exemplifies how AI can enhance accessibility across the Apple ecosystem, making devices more usable for everyone.
+
+    Through the integration of these AI advancements, Apple is ensuring that its devices are not only powerful and efficient but also respectful of user privacy. By leveraging the full potential of hardware and software integration, Apple continues to offer a cohesive and secure user experience across its entire ecosystem.
+
+    cloud data use and reducing privacy risks. Features like context-driven notifications, writing enhancements, and image creation are executed locally on iPhones, iPads, Macs, Apple TVs, and Apple Watches. This approach ensures powerful AI capabilities while keeping sensitive user data secure on the device.
+
+    Apple Privacy
+    Sam Altman at WWDC
+
+    "You should not have to hand over all the details of your life to be warehoused and analysed in someone's AI cloud. With Apple Intelligence, powerful intelligence goes hand in hand with powerful privacy," said Craig Federighi, senior vice president (SVP) of software engineering at Apple during the keynote.
+
+    Apple's latest AI initiatives, branded under "Apple Intelligence," are designed to significantly enhance user experience while strictly adhering to its privacy principles. Unlike many other companies that rely heavily on cloud computing for AI processing, Apple ensures that much of its AI functionality is performed directly on users' devices. This on-device processing minimizes data sent to the cloud, thereby reducing potential privacy risks. Key features include context-driven notifications, systemwide writing enhancements, and generative image creation, all executed locally on iPhones, iPads, Macs, Apple TVs, and Apple Watches. By keeping sensitive user data on the device and utilizing advanced machine learning models locally, Apple strikes a balance between powerful AI capabilities and robust privacy protection.
+    Apple Privacy
+
+    Conclusion:
+
+    Apple's WWDC 2024 marked a significant milestone in the tech giant's journey towards a more intelligent and privacy-focused future. With the unveiling of Apple Intelligence, the company showcased its unwavering commitment to integrating advanced AI and machine learning technologies while prioritizing user privacy above all else.
+
+    By embracing on-device processing and minimizing reliance on cloud-based solutions, Apple ensures that sensitive user data remains under the user's control, reducing potential privacy risks. This approach not only enhances privacy but also enhances the overall user experience by delivering seamless interactions and personalized services across the Apple ecosystem.
+
+    From contextual awareness and predictive capabilities to health and fitness innovations and advanced image processing, Apple Intelligence permeates every aspect of the user experience, making Apple devices more powerful, intuitive, and inclusive for all users.
+
+    As technology continues to evolve, Apple remains at the forefront of innovation, consistently pushing boundaries while staying true to its core values of privacy, security, and user-centric design. With Apple Intelligence, the company sets a new standard for AI-driven experiences, empowering users to do more with their devices while staying in control of their data.`,
+    
     author: "Dinesh Korukonda",
-    date: "2024-03-20",
+    date: "2024-06-11",
     readTime: "5 min",
-    tags: ["Web Development", "Technology", "Future Trends"]
+    tags: ["Apple Intelligence", "Technology", "Future Trends"],
+    category: "Technology"
   },
-  {
-    id: 2,
-    title: "Mastering Modern CSS Techniques",
-    excerpt: "Deep dive into advanced CSS features and best practices for modern web design...",
-    coverImage: "https://i.imghippo.com/files/iPo3701nf.jpg",
-    content: `CSS has come a long way from its humble beginnings. Today's CSS is powerful and flexible, offering features that were once only possible with JavaScript.
-
-    ![CSS Grid](https://i.imghippo.com/files/iPo3701nf.jpg)
-
-    1. CSS Grid and Flexbox
-    Understanding the power of modern layout systems. CSS Grid and Flexbox provide unprecedented control over layout and responsive design.
-
-    ![CSS Variables](https://i.imghippo.com/files/iPo3701nf.jpg)
-
-    2. CSS Custom Properties
-    Leveraging variables in CSS for maintainable code. Custom properties have revolutionized how we manage design tokens and create dynamic themes.
-
-    ![CSS Animations](https://i.imghippo.com/files/iPo3701nf.jpg)
-
-    3. CSS Animations and Transitions
-    Creating smooth, performant animations. Modern CSS provides powerful tools for creating engaging user experiences without JavaScript.`,
-    author: "Dinesh Korukonda",
-    date: "2024-03-18",
-    readTime: "4 min",
-    tags: ["CSS", "Web Design", "Frontend"]
-  },
-  {
-    id: 3,
-    title: "Building Scalable React Applications",
-    excerpt: "Best practices and patterns for building large-scale React applications...",
-    coverImage: "https://i.imghippo.com/files/iPo3701nf.jpg",
-    content: `React has become the go-to library for building modern web applications. In this post, we'll explore how to build scalable React applications that can grow with your needs.
-
-    ![State Management](https://i.imghippo.com/files/iPo3701nf.jpg)
-
-    1. State Management Strategies
-    Choosing the right state management solution is crucial for large applications. We'll explore different options and their trade-offs.
-
-    ![Component Architecture](https://i.imghippo.com/files/iPo3701nf.jpg)
-
-    2. Component Architecture
-    Designing reusable and maintainable components. Learn how to structure your components for maximum reusability and maintainability.
-
-    ![Performance](https://i.imghippo.com/files/iPo3701nf.jpg)
-
-    3. Performance Optimization
-    Techniques for keeping your React app fast. From code splitting to memoization, we'll cover essential optimization techniques.`,
-    author: "Dinesh Korukonda",
-    date: "2024-03-15",
-    readTime: "6 min",
-    tags: ["React", "JavaScript", "Architecture"]
-  }
 ];
