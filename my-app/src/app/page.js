@@ -10,6 +10,7 @@ import Skills from "./ui/Skills";
 import Projects from "./ui/Projects/index";
 import Contact from "./ui/Contact";
 import GalleryComponent from "./ui/Gallery/index";
+import AchievementsExperience from "./ui/AchievementsExperience";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <About />
         <GalleryComponent />
         <Skills />
+        <AchievementsExperience />
         <Projects />
         <Contact />
         <Footer />
