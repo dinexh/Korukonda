@@ -97,4 +97,41 @@ export const blogs = [
     tags: ["Apple Intelligence", "Technology", "Future Trends"],
     category: "Technology"
   },
+  {
+    id: 5,
+    title: "AI in Coding: Hype vs. Reality – My Experience Navigating a Complex Codebase",
+    excerpt: "Exploring the limitations and real-world applications of AI in complex development environments...",
+    coverImage: "https://i.imghippo.com/files/DsAc5954VpQ.jpeg",
+    content: `The Reality of AI in Real-World Developmentc
+
+    There's a lot of buzz about how AI can generate entire websites and apps with just a single prompt, and no-code development is being called the future. I've experienced firsthand how AI can significantly improve workflow, making coding faster and more efficient. However, when it comes to working on code written by multiple developers with different styles and approaches, I've noticed that AI often struggles.
+
+    My AI Experiment at ISKCON ISV
+    I've been interning at ISKCON ISV for a month now, working on a project that has evolved over time with contributions from multiple developers. The codebase is a mix of old technologies, different coding styles, and a lack of proper documentation, making it quite tricky to navigate.
+
+    For my first task, I had to add a new page with specific functionalities. Seemed simple enough, so I decided to let Cursor Pro handle it.
+
+    It completely flunked.
+
+    The biggest challenge? A 15,000-line API file buried deep in the repo. AI kept getting stuck, hallucinating responses, and repeating mistakes instead of making meaningful progress. No matter how much I refined the prompts, it just couldn't understand the full context or correctly modify the code.
+
+    Eventually, I gave up on AI and tackled the problem manually. After spending time digging into the existing codebase, I finally got it working. That's when it hit me—this was a relatively small app, but its complexity had grown over time due to multiple developers and outdated practices. Yet, AI still struggled. What happens when we deal with massive enterprise applications?
+
+    Will AI Replace Developers in Complex Projects?
+    Some argue that AI will keep improving and eventually handle complex coding tasks. But here's the thing:
+
+    Real-world codebases are messy. Developers often prioritize making things work over following clean coding principles.
+    Under pressure, clean code goes out the window. AI struggles with inconsistencies and technical debt.
+    AI can't fully grasp project-specific logic. It might assist in understanding and generating ideas, but it lacks true comprehension.
+
+    Final Thoughts
+    AI is a fantastic tool for speeding up development, generating boilerplate code, and automating repetitive tasks. But it isn't ready to take over large-scale, real-world applications just yet. Instead of replacing developers, AI is more like a coding assistant—helpful but not foolproof.
+
+    For now, the best devs will be the ones who know how to use AI effectively without fully relying on it.`,
+    author: "Dinesh Korukonda",
+    date: "2024-03-25",
+    readTime: "5 min",
+    tags: ["AI", "Development", "Coding", "Tech Experience"],
+    category: "Technology"
+  },
 ];
