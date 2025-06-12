@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
   const DownloadResume = () => {
-    window.open("/resume.pdf", "_blank");
+    window.open("/dineshkorukonda.pdf", "_blank");
   };
 
   const skills = [

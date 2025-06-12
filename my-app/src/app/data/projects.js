@@ -14,28 +14,6 @@ export const projects = [
     ],
   },
   {
-    title: "ZeroOne Workspace",
-    description:
-      "A single platform for all productivity and efficiency needs.",
-    image: "https://i.imghippo.com/files/MOw5786pS.png",
-    link: "https://workspacebyzeroone.vercel.app",
-    tags: [
-      "Next.js",
-      "Node.js",
-      "MongoDB",
-      "Vercel",
-      "TypeScript",
-      "Gemini API",
-    ],
-    longDescription:
-      "ZeroOne Workspace is a centralized productivity hub designed for professionals and teams. The platform enables users to manage tasks, collaborate efficiently, and access AI-powered insights using the Gemini API. Built with Next.js and Node.js, the workspace provides a smooth, scalable, and fast experience, ensuring enhanced workflow optimization.",
-    features: [
-      "AI-powered task management",
-      "Real-time collaboration tools",
-      "Cloud-based accessibility",
-    ],
-  },
-  {
     title: "Smart Village Revolution Website",
     description: "A pioneering initiative of KLEF (Deemed to be University).",
     image: "https://i.imghippo.com/files/ZgcS5305kMk.png",
