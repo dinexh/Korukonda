@@ -18,13 +18,6 @@ const achievements = [
 
 const experiences = [
   {
-    company: "Iskcon Silicon Valley",
-    role: "Full Stack Developer - Remote Intern",
-    duration: "2025 Feb - Present",
-    description: "I would be working on the frontend and backend of the Sankirtan Website and Sankirtan App",
-    tech: ["React", "Node.js", "React Native"]
-  },
-  {
     company: "KLEF-SAC's ZeroOne CodeClub",
     role: "Full Stack Developer & Director of Technical Development",
     duration: "2023 - Present",

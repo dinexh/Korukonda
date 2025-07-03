@@ -84,4 +84,17 @@ export const projects = [
       "Educational resources for children and enthusiasts",
     ],
   },
+  {
+    title: "Zappy Terminal",
+    description:
+      "A bun based shell made with TS",
+    longDescription: "An ongoing project to build a Unix shell with Bun and TypeScript for speed",
+    image: "https://i.imghippo.com/files/tWDv7913ME.png",
+    link: "https://github.com/dinexh/Zappy-Terminal",
+    tags: ["TypeScript", "Bun", "CLI", "GPU Acceleration"],
+    features: [
+      "bun based",
+      "TS"
+    ]
+  },
 ];
