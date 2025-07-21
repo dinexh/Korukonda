@@ -18,12 +18,20 @@ const achievements = [
 
 const experiences = [
   {
+    company: "GeekBull",
+    role: "Software Engineer Intern",
+    duration: "2025 June - Present",
+    description: "Working as a Software Engineer Intern at GeekBull, focusing on full-stack development and contributing to various projects including intenal tools.",
+    tech: ["Elixir", "Phoenix", "Triplex" , "Redis"]
+  },
+  {
     company: "KLEF-SAC's ZeroOne CodeClub",
     role: "Full Stack Developer & Director of Technical Development",
     duration: "2023 - Present",
     description: "I was the full stack developer and the director of technical development of the club",
     tech: ["Nextjs", "Node js", "MongoDB", "Mysql", "Docker", "Ubuntu"]
   },
+
 ];
 
 export default function AchievementsExperience() {

@@ -7,7 +7,7 @@ const skills = {
   languages: [
     { name: "TypeScript", type: "let", value: "language.typed", years: 2 },
     { name: "JavaScript", type: "const", value: "language.primary", years: 4 },
-    { name: "Python", type: "let", value: "language.scripting", years: 2 },
+    { name: "Elixir", type: "def", value: "language.primary", years: 2 },
     { name: "PHP", type: "let", value: "language.web", years: 2 },
     { name: "Java", type: "let", value: "language.compiled", years: 2 }
   ],
@@ -15,7 +15,8 @@ const skills = {
     { name: "React.js", type: "const", value: "frontend.primary", years: 4 },
     { name: "Next.js", type: "const", value: "frontend.framework", years: 3 },
     { name: "Node.js", type: "const", value: "backend.runtime", years: 3 },
-    { name: "Express", type: "import", value: "backend.framework", years: 3 }
+    { name: "Express", type: "import", value: "backend.framework", years: 3 },
+    { name: "Phoneix", type: "import", value: "backend.framework.elixir", years: 2 }
   ],
   databases: [
     { name: "MongoDB", type: "const", value: "database.nosql", years: 3 },
