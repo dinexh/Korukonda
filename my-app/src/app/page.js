@@ -9,7 +9,7 @@ import About from "./ui/About";
 import Skills from "./ui/Skills";
 import Projects from "./ui/Projects/index";
 import Contact from "./ui/Contact";
-import GalleryComponent from "./ui/Gallery/index";
+// import GalleryComponent from "./ui/Gallery/index";
 import AchievementsExperience from "./ui/AchievementsExperience";
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
         <Navigation />
         <Hero />
         <About />
-        <GalleryComponent />
+        {/* <GalleryComponent /> */}
         <Skills />
         <AchievementsExperience />
         <Projects />
